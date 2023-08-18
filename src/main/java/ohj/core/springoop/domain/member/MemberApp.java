@@ -1,5 +1,7 @@
 package ohj.core.springoop.domain.member;
 
+import ohj.core.springoop.domain.member.entity.Grade;
+import ohj.core.springoop.domain.member.entity.Member;
 import ohj.core.springoop.domain.member.service.MemberService;
 import ohj.core.springoop.domain.member.service.MemberServiceImpl;
 

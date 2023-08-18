@@ -1,6 +1,6 @@
 package ohj.core.springoop.domain.member.service;
 
-import ohj.core.springoop.domain.member.Member;
+import ohj.core.springoop.domain.member.entity.Member;
 
 /**
  * Author : hyujikoh

@@ -1,4 +1,4 @@
-package ohj.core.springoop.domain.member;
+package ohj.core.springoop.domain.member.entity;
 
 /**
  * Author : hyujikoh
