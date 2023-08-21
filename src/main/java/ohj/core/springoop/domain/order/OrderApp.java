@@ -4,9 +4,7 @@ import ohj.core.springoop.config.AppConfig;
 import ohj.core.springoop.domain.member.entity.Grade;
 import ohj.core.springoop.domain.member.entity.Member;
 import ohj.core.springoop.domain.member.service.MemberService;
-import ohj.core.springoop.domain.member.service.MemberServiceImpl;
 import ohj.core.springoop.domain.order.service.OrderService;
-import ohj.core.springoop.domain.order.service.OrderServiceImpl;
 
 /**
  * Author : hyujikoh
@@ -21,7 +19,7 @@ public class OrderApp {
         long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
         memberService.join(member);
-        Order order = orderService.createOrder(memberId, "itemA", 10000);
+        Order order = orderService.createOrder(memberId, "itemA", 33000);
         System.out.println("order = " + order);
     }
 }

@@ -2,6 +2,7 @@ package ohj.core.springoop.config;
 
 import ohj.core.springoop.domain.discount.DiscountPolicy;
 import ohj.core.springoop.domain.discount.FixDiscountPolicy;
+import ohj.core.springoop.domain.discount.RateDiscountPolicy;
 import ohj.core.springoop.domain.member.repository.MemberRepository;
 import ohj.core.springoop.domain.member.repository.MemoryMemberRepository;
 import ohj.core.springoop.domain.member.service.MemberService;
@@ -29,7 +30,8 @@ public class AppConfig {
     }
 
     public DiscountPolicy discountPolicy(){
-        return new FixDiscountPolicy();
+        //return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 
 
