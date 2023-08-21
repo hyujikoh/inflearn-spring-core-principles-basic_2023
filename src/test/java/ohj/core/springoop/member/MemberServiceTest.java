@@ -1,10 +1,12 @@
 package ohj.core.springoop.member;
 
+import ohj.core.springoop.config.AppConfig;
 import ohj.core.springoop.domain.member.entity.Grade;
 import ohj.core.springoop.domain.member.entity.Member;
 import ohj.core.springoop.domain.member.service.MemberService;
 import ohj.core.springoop.domain.member.service.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +16,13 @@ import org.junit.jupiter.api.Test;
  * Desc :
  */
 public class MemberServiceTest {
-    MemberService memberService = new MemberServiceImpl();
+    MemberService memberService;
+
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
     @Test
     @DisplayName("hashmap 을 통한 회원가입 로직")
     void join(){

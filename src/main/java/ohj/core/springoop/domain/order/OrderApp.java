@@ -1,5 +1,6 @@
 package ohj.core.springoop.domain.order;
 
+import ohj.core.springoop.config.AppConfig;
 import ohj.core.springoop.domain.member.entity.Grade;
 import ohj.core.springoop.domain.member.entity.Member;
 import ohj.core.springoop.domain.member.service.MemberService;
@@ -14,8 +15,9 @@ import ohj.core.springoop.domain.order.service.OrderServiceImpl;
  */
 public class OrderApp {
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
         long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
         memberService.join(member);
