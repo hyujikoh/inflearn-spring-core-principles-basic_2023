@@ -1,5 +1,6 @@
 package ohj.core.springoop.order;
 
+import ohj.core.springoop.config.AppConfig;
 import ohj.core.springoop.domain.member.entity.Grade;
 import ohj.core.springoop.domain.member.entity.Member;
 import ohj.core.springoop.domain.member.service.MemberService;
@@ -8,6 +9,7 @@ import ohj.core.springoop.domain.order.Order;
 import ohj.core.springoop.domain.order.service.OrderService;
 import ohj.core.springoop.domain.order.service.OrderServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -16,10 +18,17 @@ import org.junit.jupiter.api.Test;
  * Desc :
  */
 public class OrderServiceTest {
-    MemberService memberService = new MemberServiceImpl();
+    MemberService memberService;
 
-    OrderService orderService = new OrderServiceImpl();
+    OrderService orderService;
 
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+
+        orderService = appConfig.orderService();;
+    }
     @Test
     void createOrder() {
         long memberId = 1L;

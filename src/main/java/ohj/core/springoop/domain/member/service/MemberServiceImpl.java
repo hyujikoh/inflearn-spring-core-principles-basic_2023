@@ -10,7 +10,11 @@ import ohj.core.springoop.domain.member.repository.MemoryMemberRepository;
  * Desc :
  */
 public class MemberServiceImpl implements MemberService{
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;// 추상화에 대해서만 의지한다.
+
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public void join(Member member) {
