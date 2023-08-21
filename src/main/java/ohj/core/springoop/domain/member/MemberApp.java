@@ -5,6 +5,8 @@ import ohj.core.springoop.domain.member.entity.Grade;
 import ohj.core.springoop.domain.member.entity.Member;
 import ohj.core.springoop.domain.member.service.MemberService;
 import ohj.core.springoop.domain.member.service.MemberServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * Author : hyujikoh
@@ -13,9 +15,9 @@ import ohj.core.springoop.domain.member.service.MemberServiceImpl;
  */
 public class MemberApp {
     public static void main(String[] args) {
-        AppConfig appConfig = new AppConfig();
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        MemberService memberService = applicationContext.getBean("memberService",MemberService.class);
 
-        MemberService memberService = appConfig.memberService();
         Member memberA = new Member(1L, "memberA", Grade.VIP);
 
         memberService.join(memberA);
