@@ -1,6 +1,7 @@
 package ohj.core.springoop.singleton;
 
 import ohj.core.springoop.config.AppConfig;
+import ohj.core.springoop.domain.member.service.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -33,6 +34,7 @@ public class StatefulServiceTest {
     }
 
     static class TestConfig{
+
         @Bean
         public StatefulService statefulService(){
             return new StatefulService();
