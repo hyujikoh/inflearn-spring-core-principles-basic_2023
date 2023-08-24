@@ -2,12 +2,15 @@ package ohj.core.springoop.domain.discount;
 
 import ohj.core.springoop.domain.member.entity.Grade;
 import ohj.core.springoop.domain.member.entity.Member;
+import org.springframework.stereotype.Component;
 
 /**
  * Author : hyujikoh
  * CreatedAt : 2023-08-18
  * Desc : 금액비율에 따른 할인 서비스 구현체
  */
+
+@Component
 public class RateDiscountPolicy implements DiscountPolicy{
     private int discountPercent = 10;
 

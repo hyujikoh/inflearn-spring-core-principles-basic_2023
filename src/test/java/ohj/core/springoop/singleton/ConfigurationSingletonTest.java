@@ -17,8 +17,7 @@ public class ConfigurationSingletonTest {
 
     @Test
     void configurationTest(){
-        ApplicationContext ac = new
-                AnnotationConfigApplicationContext(AppConfig.class);
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 
 
         MemberServiceImpl memberService = ac.getBean("memberService", MemberServiceImpl.class);
@@ -30,5 +29,11 @@ public class ConfigurationSingletonTest {
         System.out.println("memberService -> memberRepository = " + memberService.getMemberRepository());
         System.out.println("orderService -> memberRepository = " + orderService.getMemberRepository());
         System.out.println("memberRepository = " + memberRepository);
+    }
+
+    @Test
+    void configurationDeep(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
     }
 }
