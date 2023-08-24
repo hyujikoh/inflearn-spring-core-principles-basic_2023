@@ -1,4 +1,4 @@
-package ohj.core.springoop.AutoAppConfigTest;
+package ohj.core.springoop.scan;
 
 import ohj.core.springoop.AutoAppConfig;
 import ohj.core.springoop.domain.member.service.MemberService;
@@ -22,4 +22,5 @@ public class AutoAppConfigTest {
         MemberService memberService = ac.getBean(MemberService.class);
         assertThat(memberService).isInstanceOf(MemberService.class);
     }
+
 }
