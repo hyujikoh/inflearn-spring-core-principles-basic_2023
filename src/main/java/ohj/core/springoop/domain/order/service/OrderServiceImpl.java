@@ -1,11 +1,10 @@
 package ohj.core.springoop.domain.order.service;
 
-import lombok.RequiredArgsConstructor;
+import ohj.core.springoop.annotation.MainDiscountPolicy;
 import ohj.core.springoop.domain.discount.DiscountPolicy;
 import ohj.core.springoop.domain.member.entity.Member;
 import ohj.core.springoop.domain.member.repository.MemberRepository;
 import ohj.core.springoop.domain.order.Order;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,10 +14,15 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@RequiredArgsConstructor
+
 public class OrderServiceImpl implements  OrderService {
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

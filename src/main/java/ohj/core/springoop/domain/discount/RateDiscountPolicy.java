@@ -1,5 +1,6 @@
 package ohj.core.springoop.domain.discount;
 
+import ohj.core.springoop.annotation.MainDiscountPolicy;
 import ohj.core.springoop.domain.member.entity.Grade;
 import ohj.core.springoop.domain.member.entity.Member;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@Primary
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy{
     private int discountPercent = 10;
 
