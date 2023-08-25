@@ -1,5 +1,6 @@
 package ohj.core.springoop.domain.member.service;
 
+import lombok.RequiredArgsConstructor;
 import ohj.core.springoop.domain.member.entity.Member;
 import ohj.core.springoop.domain.member.repository.MemberRepository;
 import ohj.core.springoop.domain.member.repository.MemoryMemberRepository;
@@ -12,13 +13,9 @@ import org.springframework.stereotype.Component;
  * Desc :
  */
 @Component
+@RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService{
     private final MemberRepository memberRepository;// 추상화에 대해서만 의지한다.
-
-    @Autowired
-    public MemberServiceImpl(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
 
     @Override
     public void join(Member member) {
