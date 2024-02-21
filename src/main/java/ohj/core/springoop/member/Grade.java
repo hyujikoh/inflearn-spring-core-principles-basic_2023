@@ -6,4 +6,6 @@ package ohj.core.springoop.member;
  * Desc :
  */
 public enum Grade {
+    BASIC,
+    VIP
 }
