@@ -1,8 +1,10 @@
 package ohj.core.springoop.member;
 
+import ohj.core.springoop.AppConfig;
 import ohj.core.springoop.member.service.MemberService;
 import ohj.core.springoop.member.service.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +14,12 @@ import org.junit.jupiter.api.Test;
  * Desc :
  */
 public class MemberServiceTest {
-    MemberService memberService = new MemberServiceImpl();
+    MemberService memberService;
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
 
     @Test
     @DisplayName("서버 내 메모리 기반 저장소 저장 테스트")

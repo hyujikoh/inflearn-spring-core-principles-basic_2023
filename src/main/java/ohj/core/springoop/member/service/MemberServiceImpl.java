@@ -2,7 +2,6 @@ package ohj.core.springoop.member.service;
 
 import ohj.core.springoop.member.Member;
 import ohj.core.springoop.member.respository.MemberRepository;
-import ohj.core.springoop.member.respository.MemoryMemberRepository;
 
 /**
  * Author : hyujikoh
@@ -10,7 +9,12 @@ import ohj.core.springoop.member.respository.MemoryMemberRepository;
  * Desc :
  */
 public class MemberServiceImpl implements MemberService{
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
     @Override
     public void join(Member member) {
         memberRepository.save(member);

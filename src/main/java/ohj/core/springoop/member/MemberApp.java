@@ -1,5 +1,6 @@
 package ohj.core.springoop.member;
 
+import ohj.core.springoop.AppConfig;
 import ohj.core.springoop.member.service.MemberService;
 import ohj.core.springoop.member.service.MemberServiceImpl;
 
@@ -10,7 +11,10 @@ import ohj.core.springoop.member.service.MemberServiceImpl;
  */
 public class MemberApp {
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
+        AppConfig appConfig = new AppConfig();
+
+
+        MemberService memberService = appConfig.memberService();
         Member member = new Member(1L, "memberA", Grade.VIP);
         memberService.join(member);
         Member findMember = memberService.findMember(1L);
