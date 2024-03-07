@@ -1,6 +1,9 @@
 package ohj.core.springoop.member.respository;
 
 import ohj.core.springoop.member.Member;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +13,7 @@ import java.util.Map;
  * CreatedAt : 2024-02-21
  * Desc :
  */
+@Component
 public class MemoryMemberRepository implements MemberRepository{
     private static Map<Long, Member> store = new HashMap<>();
 

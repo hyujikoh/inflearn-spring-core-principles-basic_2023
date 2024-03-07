@@ -5,16 +5,20 @@ import ohj.core.springoop.discount.FixDiscountPolicy;
 import ohj.core.springoop.member.Member;
 import ohj.core.springoop.member.respository.MemberRepository;
 import ohj.core.springoop.member.respository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Author : hyujikoh
  * CreatedAt : 2024-02-21
  * Desc :
  */
+@Component
 public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
