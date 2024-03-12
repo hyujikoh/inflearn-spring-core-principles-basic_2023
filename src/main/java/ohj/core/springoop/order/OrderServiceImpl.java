@@ -1,5 +1,6 @@
 package ohj.core.springoop.order;
 
+import lombok.RequiredArgsConstructor;
 import ohj.core.springoop.discount.DiscountPolicy;
 import ohj.core.springoop.discount.FixDiscountPolicy;
 import ohj.core.springoop.member.Member;
@@ -14,15 +15,10 @@ import org.springframework.stereotype.Component;
  * Desc :
  */
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
-
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
