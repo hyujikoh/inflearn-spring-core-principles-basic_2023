@@ -8,7 +8,7 @@ import org.springframework.beans.factory.InitializingBean;
  * CreatedAt : 2024-03-13
  * Desc :
  */
-public class NetworkClient implements InitializingBean, DisposableBean {
+public class NetworkClient {
     private String url;
 
     public NetworkClient() {
@@ -23,21 +23,19 @@ public class NetworkClient implements InitializingBean, DisposableBean {
         System.out.println("call: " + url + " message = " + message);
     }
     //서비스 종료시 호출
-    public void disconnect() {
-        System.out.println("close: " + url);
+    public void disConnect() {
+        System.out.println("close + " + url);
     }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
+    public void init() {
+        System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메시지");
     }
-    @Override
-    public void destroy() throws Exception {
-        disconnect();
+    public void close() {
+        System.out.println("NetworkClient.close");
+        disConnect();
+    }
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
