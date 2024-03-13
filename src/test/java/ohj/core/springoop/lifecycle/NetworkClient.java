@@ -3,6 +3,9 @@ package ohj.core.springoop.lifecycle;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 /**
  * Author : hyujikoh
  * CreatedAt : 2024-03-13
@@ -26,11 +29,15 @@ public class NetworkClient {
     public void disConnect() {
         System.out.println("close + " + url);
     }
+
+    @PostConstruct
     public void init() {
         System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메시지");
     }
+
+    @PreDestroy
     public void close() {
         System.out.println("NetworkClient.close");
         disConnect();
