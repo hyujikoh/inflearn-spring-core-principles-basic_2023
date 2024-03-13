@@ -2,6 +2,8 @@ package ohj.core.springoop.discount;
 
 import ohj.core.springoop.member.Grade;
 import ohj.core.springoop.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,6 +12,8 @@ import org.springframework.stereotype.Component;
  * Desc :
  */
 @Component
+@Qualifier("mainDiscountPolicy")
+@Primary
 public class RateDiscountPolicy implements DiscountPolicy{
     private int discountPercent = 10; //10% 할인
     @Override

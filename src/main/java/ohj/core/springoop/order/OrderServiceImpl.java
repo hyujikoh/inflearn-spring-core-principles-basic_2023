@@ -7,6 +7,7 @@ import ohj.core.springoop.member.Member;
 import ohj.core.springoop.member.respository.MemberRepository;
 import ohj.core.springoop.member.respository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -18,6 +19,8 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
+
+
     private final DiscountPolicy discountPolicy;
 
     @Override
